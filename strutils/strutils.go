@@ -29,3 +29,9 @@ func MD5String(s string) string {
 	h.Write([]byte(s))
 	return hex.EncodeToString(h.Sum(nil))
 }
+
+func MD5Bytes(b []byte) string {
+	h := md5.New()
+	h.Write(b)
+	return hex.EncodeToString(h.Sum(nil))
+}
