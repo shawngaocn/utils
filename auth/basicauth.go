@@ -17,16 +17,13 @@ func (b *BasicAuth) Verify(key, secret string) bool {
 	if len(b.Key) == 0 || len(b.Nonce) == 0 || len(b.Signature) == 0 {
 		return false
 	}
-
 	if b.Key != key {
 		return false
 	}
-
 	sign := strutils.MD5String(b.Key + b.Nonce + secret)
 	if b.Signature != sign {
 		return false
 	}
-
 	return true
 }
 
