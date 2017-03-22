@@ -9,6 +9,7 @@ import (
 	mrand "math/rand"
 )
 
+// NonceString Make Nonce string
 func NonceString() string {
 	var bytes [32]byte
 	var b int64
@@ -27,12 +28,14 @@ func NonceString() string {
 	return string(bytes[:32])
 }
 
+// MD5String Make MD5 string
 func MD5String(s string) string {
 	h := md5.New()
 	h.Write([]byte(s))
 	return hex.EncodeToString(h.Sum(nil))
 }
 
+// MD5Bytes Make MD5 bytes
 func MD5Bytes(b []byte) string {
 	h := md5.New()
 	h.Write(b)
